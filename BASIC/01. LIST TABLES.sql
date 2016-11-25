@@ -1,1 +1,13 @@
+USE AdventureWorks2014
+GO
+
+SELECT 
+	TABLE_SCHEMA,
+	TABLE_NAME
+FROM
+	INFORMATION_SCHEMA.tables tabs
+WHERE
+	tabs.TABLE_TYPE = 'BASE TABLE'
+ORDER BY 
+	table_name
 
