@@ -1,0 +1,2 @@
+# metasql
+Meta SQL queries
