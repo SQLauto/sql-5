@@ -1,3 +1,6 @@
+USE AdventureWorks2014
+GO
+
 SET NOCOUNT ON
 
 CREATE TABLE #schema (
@@ -49,6 +52,7 @@ INTO @tableId, @schemaName, @tableName
 WHILE @@FETCH_STATUS = 0
 BEGIN
 
+	-- GETS THE NUMBER OF ROWS IN EACH TABLE
 	DECLARE @rowCount INT = 0
 	DECLARE @sql NVARCHAR(2000)
 	SET @sql = N'SELECT @cnt = COUNT(*) FROM [' + @schemaName + '].[' + @tableName + ']'
@@ -58,7 +62,20 @@ BEGIN
 	UPDATE #table
 	SET [rowCount] = @rowCount
 	WHERE tableID = @tableId
-		
+
+
+	-- GETS THE NUMBER OF COLUMNS IN EACH TABLE
+	DECLARE @colCount INT = 0
+	SET @sql = N'SELECT @cnt = count(*) FROM sys.columns ' + 
+				'WHERE columns.object_id = ' + 
+				'object_id(''[' + @schemaName + '].[' + @tableName + ']'')'
+
+	EXEC sp_executesql @sql, @params = N'@cnt INT OUT', @cnt = @colCount OUTPUT 
+
+	UPDATE #table
+	SET [colCount] = @colCount
+	WHERE tableID = @tableId
+
 	FETCH NEXT FROM my_cursor
 	INTO @tableId, @schemaName, @tableName
 END
