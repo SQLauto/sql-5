@@ -1,6 +1,3 @@
-USE AdventureWorks2014
-GO
-
 SET NOCOUNT ON
 
 CREATE TABLE #schema (
@@ -37,23 +34,33 @@ ORDER BY
 
 
 DECLARE my_cursor CURSOR
-FOR SELECT tableId, tableName FROM #table
+FOR SELECT tableId, schemaName, tableName
+	FROM #table INNER JOIN #schema on #table.schemaId = #schema.schemaId
 
 DECLARE @tableId INT,
+		@schemaName NVARCHAR(200),
 		@tableName NVARCHAR(200)
 
 OPEN my_cursor
 
 FETCH NEXT FROM my_cursor
-INTO @tableId, @tableName
+INTO @tableId, @schemaName, @tableName
 
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	
-	PRINT @tableName
 
+	DECLARE @rowCount INT = 0
+	DECLARE @sql NVARCHAR(2000)
+	SET @sql = N'SELECT @cnt = COUNT(*) FROM [' + @schemaName + '].[' + @tableName + ']'
+
+	EXEC sp_executesql @sql, @params = N'@cnt INT OUT', @cnt = @rowCount OUTPUT 
+
+	UPDATE #table
+	SET [rowCount] = @rowCount
+	WHERE tableID = @tableId
+		
 	FETCH NEXT FROM my_cursor
-	INTO @tableId, @tableName
+	INTO @tableId, @schemaName, @tableName
 END
 
 CLOSE my_cursor
@@ -70,5 +77,3 @@ FROM
 
 DROP TABLE #schema
 DROP TABLE #table
-
-
