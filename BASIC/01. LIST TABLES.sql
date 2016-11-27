@@ -1,6 +1,3 @@
-USE AdventureWorks2014
-GO
-
 SELECT 
 	TABLE_SCHEMA,
 	TABLE_NAME
