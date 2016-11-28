@@ -1,5 +1,7 @@
 SET NOCOUNT ON
 
+-----------------------------------------------------------------------------------------
+-- MAIN APPLICATION TABLES
 CREATE TABLE #database(
 	databaseId		INT				IDENTITY(1,1)	PRIMARY KEY,
 	databaseName	NVARCHAR(100)					NOT NULL,
@@ -13,13 +15,26 @@ CREATE TABLE #file(
 	physical_name	NVARCHAR(2000)					NOT NULL,
 	[size]			BIGINT							NOT NULL			
 )
+-----------------------------------------------------------------------------------------
 
+
+
+-----------------------------------------------------------------------------------------
+-- GET DATABASES
 INSERT INTO #database (databaseName, database_id)
 SELECT 
 	name, 
 	database_id
 FROM sys.databases
+-----------------------------------------------------------------------------------------
 
+
+
+
+-----------------------------------------------------------------------------------------
+-- CURSOR:
+--
+-- GET THE DETAILS OF EACH FILE AND MATCH WITH ASSOCIATED DATABASE
 DECLARE	@dbId INT,
 		@dbName NVARCHAR(100),
 		@database_id INT
@@ -46,18 +61,26 @@ BEGIN
 	INTO @dbid, @dbName, @database_id
 END
 
-
 CLOSE my_cursor
 DEALLOCATE my_cursor
+-- END CURSOR
+-----------------------------------------------------------------------------------------
 
-SELECT 
-	* 
+
+-----------------------------------------------------------------------------------------
+-- CHECK RESULTS
+SELECT * 
 FROM 
 	#database
 	INNER JOIN #file
 	ON #database.databaseId = #file.databaseId
 ORDER BY #database.databaseName
+-----------------------------------------------------------------------------------------
 
+
+
+-----------------------------------------------------------------------------------------
+-- CLEANUP
 DROP TABLE #database
 DROP TABLE #file
-
+-----------------------------------------------------------------------------------------
