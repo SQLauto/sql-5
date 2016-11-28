@@ -1,3 +1,16 @@
+/**
+Author:		RR
+Created:	28/11/2016
+Description:	SETS UP THE DATABASE AND FILE TABLES INFORMATION IN 
+		TEMP TABLES.  THESE SHOULD FORM THE BUILDING BLOCKS
+		FOR FURTHER INFORMATION ON THE DATA STRUCTURE.
+
+UPDATES
+---------------------------------------------------------------------------------
+DATE		EDITOR	  DESCRIPTION
+28/11/2016	RR        File created
+**/
+
 SET NOCOUNT ON
 
 -----------------------------------------------------------------------------------------
