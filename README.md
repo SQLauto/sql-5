@@ -1,7 +1,4 @@
-# metasql
-Meta SQL queries
-
-#Goal
+#Project Goals
 Create a library of meta SQL queries that facilitate understanding of the structure of a database
 
 #Platform
