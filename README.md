@@ -1,5 +1,7 @@
 #Project Goals
-Create a library of meta SQL queries that facilitate understanding the structure of a database
+Create a library of SQL queries that fall into two main areas
+*General query templates
+*Meta sql for querying the structure of a database server and/or individual database
 
 #Platform
 All code is written for SQL server 2008R2 and above
