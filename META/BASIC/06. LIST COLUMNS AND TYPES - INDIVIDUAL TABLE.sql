@@ -10,10 +10,11 @@ DATE		EDITOR	DESCRIPTION
 
 **/
 
--- SET TABLE OF INTEREST HERE!
-DECLARE @TABLE VARCHAR(100) = 'fct_ApplicationTask'
+-- SET TABLE OF INTEREST HERE OR USE WILDCARDS TO MATCH
+DECLARE @TABLE VARCHAR(100) = 'fct_%'
 
 SELECT 
+	t.[name] AS [tableName],
 	c.[name], 
 	c.column_id,
 	[type] = (
@@ -26,9 +27,12 @@ SELECT
 	[is_nullable]
 FROM 
 	sys.columns c 
-WHERE c.object_id = 
-	(SELECT object_id FROM sys.tables WHERE name = @TABLE)
+	INNER JOIN sys.tables t
+	ON c.object_id = t.object_id
+WHERE	
+	t.name LIKE @TABLE
 ORDER BY 
+	t.name,
 	c.column_id
 
 
