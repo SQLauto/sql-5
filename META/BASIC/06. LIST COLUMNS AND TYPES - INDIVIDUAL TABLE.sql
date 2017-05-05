@@ -11,11 +11,11 @@ DATE		EDITOR	DESCRIPTION
 **/
 
 -- SET TABLE OF INTEREST HERE OR USE WILDCARDS TO MATCH
-DECLARE @TABLE VARCHAR(100) = 'fct_%'
+DECLARE @TABLE VARCHAR(100) = 'morAppFma%'
 
 SELECT 
 	t.[name] AS [tableName],
-	c.[name], 
+	c.[name] AS [columnName], 
 	c.column_id,
 	[type] = (
 		SELECT [name] 
