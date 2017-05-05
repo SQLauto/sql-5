@@ -1,14 +1,57 @@
+/**
+Author:			Richard Rulach
+Created:		05/05/2017
+Description:	Goes through matching tables and creates a table of all tables 
+				that are linked to it.
 
-USE BackOfficeMortgage
-go
+UPDATES
+---------------------------------------------------------------------------------
+DATE		    EDITOR	  DESCRIPTION
+05/05/2017		RR		  Created
 
---select * FROM sys.procedures
-DECLARE @tbl VARCHAR(100) = 'morAppFma_FMALoanDetails'
+**/
+
+DECLARE @tbl VARCHAR(100) = 'document%'
 
 
--- WHAT OTHER TABLES REFERENCE IT?
-EXEC sp_fkeys @pktable_name = @tbl
+SELECT 
+	pkSchema.name as primaryKeyTableSchema,
+	pktable.name as primaryKeyTableName,
+	pkTableCols.name as primaryKeyColumnName,
+	fkSchema.name as foreignKeyTableSchema,
+	fkTable.name as foreignKeyTableName,
+	fkTableCols.name as foreignKeyColumnName
+FROM 
+	sys.foreign_key_columns fkc
 
--- WHAT FOREIGN KEYS DOES IT HAVE?
-exec sp_fkeys @fktable_name = @tbl
+	-- TABLES
+	INNER JOIN sys.tables pkTable
+	ON fkc.referenced_object_id = pkTable.object_id
+	INNER JOIN sys.tables fkTable
+	ON fkc.parent_object_id = fkTable.object_id
+
+	-- SCHEMAS
+	INNER JOIN sys.schemas pkSchema
+	ON pkTable.schema_id = pkSchema.schema_id
+	INNER JOIN sys.schemas fkSchema
+	ON fkTable.schema_id = fkSchema.schema_id
+
+	-- COLUMNS
+	INNER JOIN sys.columns pkTableCols
+	ON pkTable.object_id = pkTableCols.object_id
+	AND fkc.referenced_column_id = pkTableCols.column_id
+
+	INNER JOIN sys.columns fkTableCols
+	ON fkTable.object_id = fkTableCols.object_id
+	AND fkc.parent_column_id = fkTableCols.column_id
+
+WHERE
+	pktable.name LIKE @tbl
+OR
+	fktable.name LIKE @tbl
+
+
+
+
+
 
