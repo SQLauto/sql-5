@@ -21,6 +21,8 @@ SELECT
 	fkSchema.name as foreignKeyTableSchema,
 	fkTable.name as foreignKeyTableName,
 	fkTableCols.name as foreignKeyColumnName
+INTO
+	#relationships
 FROM 
 	sys.foreign_key_columns fkc
 
@@ -45,13 +47,24 @@ FROM
 	ON fkTable.object_id = fkTableCols.object_id
 	AND fkc.parent_column_id = fkTableCols.column_id
 
+
+-- GET ALL RELATIONSHIPS
+SELECT 
+	* 
+FROM 
+	#relationships
 WHERE
-	pktable.name LIKE @tbl
+	primaryKeyTableName LIKE @tbl
 OR
-	fktable.name LIKE @tbl
+	foreignKeyTableName LIKE @tbl
+
+-- TABLES WHICH HAVE RELATIONSHIPS
+SELECT DISTINCT primaryKeyTableName as linkedTables FROM #relationships
+UNION
+SELECT DISTINCT foreignKeyTableName as linkedTables FROM #relationships
 
 
-
+DROP TABLE #relationships
 
 
 
