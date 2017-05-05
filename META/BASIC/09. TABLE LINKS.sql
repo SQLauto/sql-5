@@ -11,7 +11,7 @@ DATE		    EDITOR	  DESCRIPTION
 
 **/
 
-DECLARE @tbl VARCHAR(100) = 'document%'
+DECLARE @tbl VARCHAR(100) = '%'
 
 
 SELECT 
@@ -58,10 +58,19 @@ WHERE
 OR
 	foreignKeyTableName LIKE @tbl
 
+
 -- TABLES WHICH HAVE RELATIONSHIPS
 SELECT DISTINCT primaryKeyTableName as linkedTables FROM #relationships
 UNION
 SELECT DISTINCT foreignKeyTableName as linkedTables FROM #relationships
+
+
+-- TABLES WHICH HAVE RELATIONSHIPS
+SELECT DISTINCT primaryKeyTableName as linkedTables, primaryKeyColumnName as [column], 1 as KeyType FROM #relationships
+UNION
+SELECT DISTINCT foreignKeyTableName as linkedTables, foreignKeyColumnName as [column], 2 as KeyType FROM #relationships
+ORDER BY 
+	linkedTables, keyType, [column]
 
 
 DROP TABLE #relationships
