@@ -6,6 +6,7 @@ Description:
 UPDATES
 ---------------------------------------------------------------------------------
 DATE		    EDITOR		DESCRIPTION
+09/05/2017		RR			Added column count
 08/05/2017		RR			File created
 
 **/
@@ -16,15 +17,22 @@ SELECT
 	s.name AS schemaName,
 	T.[NAME] AS tableName,
 	0 AS [rows],
-	0 AS [cols]
+	COUNT(*) AS [cols]
 INTO
 	#tdata
 FROM 
 	SYS.TABLES T
 	INNER JOIN sys.schemas s
 	ON t.schema_id = s.schema_id
+
+	INNER JOIN sys.columns c
+	ON t.object_id = c.object_id
 WHERE
 	T.[NAME] LIKE 'morAppFma_FMA%'
+GROUP BY
+	t.[object_id],
+	s.[name],
+	t.[name]	
 ORDER BY 
 	T.[NAME]
 
@@ -53,7 +61,12 @@ END
 CLOSE my_cursor
 DEALLOCATE my_cursor
 
-SELECT * FROM #tdata
-WHERE [rows] > 0
+SELECT * 
+FROM 
+	#tdata
+WHERE 
+	[rows] > 0
+ORDER BY 
+	tableName
 
 DROP TABLE #tdata

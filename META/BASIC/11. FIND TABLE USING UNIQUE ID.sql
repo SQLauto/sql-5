@@ -14,8 +14,6 @@ CREATE TABLE #results(
 	[name] VARCHAR(500)
 )
 
-DECLARE @searchId VARCHAR(200) = '7334C059-9B7F-4AB6-8AF6-00006EE23FCA'
-
 SELECT 
 	t.[object_id],
 	s.name AS schemaName,
@@ -93,11 +91,5 @@ SELECT DISTINCT [name] FROM #results
 
 DROP TABLE #results
 DROP TABLE #tdata
-
-
---SELECT * FROM dbo.morAppFma_FMAAddress WHERE ParentId IS NOT NULL
-
---SELECT * FROM dbo.morAppFma_FMAAddress WHERE id = '7334C059-9B7F-4AB6-8AF6-00006EE23FCA'
-
 
  
