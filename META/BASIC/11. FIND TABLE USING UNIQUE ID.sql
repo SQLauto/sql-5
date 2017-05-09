@@ -10,6 +10,10 @@ DATE		    EDITOR		DESCRIPTION
 
 **/
 
+CREATE TABLE #results(
+	[name] VARCHAR(500)
+)
+
 DECLARE @searchId VARCHAR(200) = '7334C059-9B7F-4AB6-8AF6-00006EE23FCA'
 
 SELECT 
@@ -32,39 +36,62 @@ ORDER BY
 
 DECLARE @sname AS VARCHAR(200), @tname AS VARCHAR(200)
 
-DECLARE	my_cursor CURSOR
-FOR SELECT schemaName, tableName FROM #tdata
+DECLARE @id AS UNIQUEIDENTIFIER
 
-OPEN my_cursor
+DECLARE	address_cursor CURSOR
+FOR SELECT TOP 1000 parentid FROM dbo.morAppFma_FMAAddress ORDER BY NEWID()
 
-FETCH NEXT FROM my_cursor
-INTO @sname, @tname
+OPEN address_cursor
+
+FETCH NEXT FROM address_cursor
+INTO @id
 
 WHILE @@FETCH_STATUS = 0
 BEGIN
-	DECLARE @sql AS NVARCHAR(1000)
-	DECLARE @result AS INTEGER
-    
-	SET @sql = N'set @result = (select count(*) from [' + @sname + '].[' + @tname + '] where id = ''' + @searchId + ''')'
+	--DO SOMETHING HERE
 
-	EXEC sp_executesql 
-		@sql,
-		N'@Result INT OUTPUT',
-		@result = @result OUTPUT; 	
-	
-	IF @result > 0 
-		PRINT @sname + '.' + @tname  
-	
+
+	DECLARE	my_cursor CURSOR
+	FOR SELECT schemaName, tableName FROM #tdata
+
+	OPEN my_cursor
+
 	FETCH NEXT FROM my_cursor
 	INTO @sname, @tname
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN
+		DECLARE @sql AS NVARCHAR(1000)
+		DECLARE @result AS INTEGER
+    
+		SET @sql = N'set @result = (select count(*) from [' + @sname + '].[' + @tname + '] where id = ''' + CAST(@id AS VARCHAR(200)) + ''')'
+
+		EXEC sp_executesql 
+			@sql,
+			N'@Result INT OUTPUT',
+			@result = @result OUTPUT; 	
+	
+		IF @result > 0 
+			INSERT INTO #results( name )
+			VALUES  ( @sname + '.' + @tname)
+
+		FETCH NEXT FROM my_cursor
+		INTO @sname, @tname
+	END
+
+	CLOSE my_cursor
+	DEALLOCATE my_cursor
+
+	FETCH NEXT FROM address_cursor
+	INTO @id
 END
 
-CLOSE my_cursor
-DEALLOCATE my_cursor
+CLOSE address_cursor
+DEALLOCATE address_cursor
 
+SELECT DISTINCT [name] FROM #results
 
-
-
+DROP TABLE #results
 DROP TABLE #tdata
 
 
