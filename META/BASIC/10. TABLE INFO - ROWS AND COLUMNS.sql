@@ -28,7 +28,7 @@ FROM
 	INNER JOIN sys.columns c
 	ON t.object_id = c.object_id
 WHERE
-	T.[NAME] LIKE 'morAppFma_FMA%'
+	T.[NAME] LIKE '%'
 GROUP BY
 	t.[object_id],
 	s.[name],
