@@ -1,7 +1,7 @@
 
 DECLARE @SearchStr AS NVARCHAR(30)
 
-SELECT @SearchStr = 'ApplicationSubmitted'
+SELECT @SearchStr = 'assign case'
 
 
     CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
