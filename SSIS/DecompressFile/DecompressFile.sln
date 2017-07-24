@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DecompressFile", "DecompressFile\DecompressFile.dtproj", "{AF8DFD4C-CA63-4C7C-BD8A-0340AE655A99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AF8DFD4C-CA63-4C7C-BD8A-0340AE655A99}.Development|Default.ActiveCfg = Development
+		{AF8DFD4C-CA63-4C7C-BD8A-0340AE655A99}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
