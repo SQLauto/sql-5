@@ -1,7 +1,7 @@
 
 DECLARE @SearchStr AS NVARCHAR(30)
 
-SELECT @SearchStr = 'assign case'
+SELECT @SearchStr = '46646597-8ff8-4aed-b8d9-0f9371d79d75'
 
 
     CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
