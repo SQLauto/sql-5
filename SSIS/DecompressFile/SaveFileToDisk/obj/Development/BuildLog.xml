@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
-    <Name>DecompressFile</Name>
-    <LastWriteTime>2017-07-24T19:49:13.7958373Z</LastWriteTime>
+    <Name>SaveFileToDisk</Name>
+    <LastWriteTime>2017-07-26T07:50:30.550331Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2017-07-24T21:01:33.7617721Z</LastWriteTime>
+      <LastWriteTime>2017-07-26T08:00:22.8630356Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
