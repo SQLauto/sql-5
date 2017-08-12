@@ -17,17 +17,17 @@ Dates(OrderDate, TxtOrderDate) AS (
 	WHERE OrderDate < @dt
 )
 
-SELECT * INTO #temp2 FROM Dates
+SELECT * INTO #dateRange FROM Dates
 
 -- PUT COLUMN NAMES INTO A VARIABLE FOR SELECT AND A VARIABLE FOR THE PIVOT STATEMENT
-SELECT @colsSelect = STUFF((SELECT ',ISNULL(' + QUOTENAME(TxtOrderDate) + ',0) as ' + QUOTENAME(TxtOrderDate) FROM #temp2 FOR XML PATH('')),1,1,'');
-SELECT @colsPivot = STUFF((SELECT ',' + QUOTENAME(TxtOrderDate) FROM #temp2 FOR XML PATH('')),1,1,'');
+SELECT @colsSelect = STUFF((SELECT ',ISNULL(' + QUOTENAME(TxtOrderDate) + ',0) as ' + QUOTENAME(TxtOrderDate) FROM #dateRange FOR XML PATH('')),1,1,'');
+SELECT @colsPivot = STUFF((SELECT ',' + QUOTENAME(TxtOrderDate) FROM #dateRange FOR XML PATH('')),1,1,'');
 
 -- COMPILE INTO THE DYNAMIC SQL STATEMENT
 DECLARE @SQL NVARCHAR(MAX) = 
 	'SELECT CustomerName, ' + @colsSelect + ' ' +
 	'FROM 
-		#temp
+		#pivottedData
 	PIVOT(
 		SUM(TotalDue)
 		FOR OrderDate 
@@ -42,7 +42,7 @@ SELECT
 	,FORMAT(SOH.OrderDate,'MM/yyyy')				AS OrderDate
 	,SUM(SOH.TotalDue)								AS TotalDue
 INTO
-	#temp
+	#pivottedData
 FROM 
 				sales.SalesOrderHeader	SOH
 	INNER JOIN	sales.Customer			C	ON SOH.CustomerID = C.CustomerID
@@ -56,6 +56,6 @@ EXEC sp_executeSQL @sql
 
 
 -- CLEANUP
-DROP TABLE #temp
-DROP TABLE #temp2
+DROP TABLE #pivottedData
+DROP TABLE #dateRange
 
