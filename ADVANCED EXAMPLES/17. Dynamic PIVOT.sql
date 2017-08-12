@@ -9,13 +9,23 @@ DECLARE @dt				DATETIME,
 -- GET THE RANGE OF DATES THAT WILL FORM THE COLUMN NAMES
 SELECT @dt = MAX(orderdate) FROM sales.SalesOrderHeader
 
+-- DEMO ALL DATES
 ;WITH 
 Dates(OrderDate, TxtOrderDate) AS (
 	SELECT MIN(orderdate) as OrderDate, FORMAT(MIN(orderdate),'MM/yyyy') as TxtOrderDate FROM sales.SalesOrderHeader 	
 	UNION ALL
 	SELECT DATEADD(mm, 1,OrderDate),FORMAT(DATEADD(mm, 1,OrderDate),'MM/yyyy') FROM Dates
-	WHERE OrderDate < @dt
+	WHERE OrderDate < @dt 
 )
+
+-- DEMO ALL DATES IN 2008 (EVEN IF THERE ARE NO ORDERS FOR IT)
+--;WITH 
+--Dates(OrderDate, TxtOrderDate) AS (
+--	SELECT DATEFROMPARTS(2008,1,1) as OrderDate, FORMAT(DATEFROMPARTS(2008,1,1),'MM/yyyy') AS TxtOrderDate
+--	UNION ALL
+--	SELECT DATEADD(mm, 1,OrderDate),FORMAT(DATEADD(mm, 1,OrderDate),'MM/yyyy') FROM Dates
+--	WHERE MONTH(OrderDate) <= 11
+--)
 
 SELECT * INTO #dateRange FROM Dates
 
