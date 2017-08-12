@@ -1,10 +1,12 @@
 
 USE AdventureWorksR2
 
-DECLARE @dt DATETIME,
-		@cols NVARCHAR(MAX),
-		@cols2 NVARCHAR(MAX)
+DECLARE @dt				DATETIME,
+		@colsSelect		NVARCHAR(MAX),
+		@colsPivot		NVARCHAR(MAX)
 
+
+-- GET THE RANGE OF DATES THAT WILL FORM THE COLUMN NAMES
 SELECT @dt = MAX(orderdate) FROM sales.SalesOrderHeader
 
 ;WITH 
@@ -17,17 +19,19 @@ Dates(OrderDate, TxtOrderDate) AS (
 
 SELECT * INTO #temp2 FROM Dates
 
-SELECT @cols = STUFF((SELECT ',ISNULL(' + QUOTENAME(TxtOrderDate) + ',0) as ' + QUOTENAME(TxtOrderDate) FROM #temp2 FOR XML PATH('')),1,1,'');
-SELECT @cols2 = STUFF((SELECT ',' + QUOTENAME(TxtOrderDate) FROM #temp2 FOR XML PATH('')),1,1,'');
+-- PUT COLUMN NAMES INTO A VARIABLE FOR SELECT AND A VARIABLE FOR THE PIVOT STATEMENT
+SELECT @colsSelect = STUFF((SELECT ',ISNULL(' + QUOTENAME(TxtOrderDate) + ',0) as ' + QUOTENAME(TxtOrderDate) FROM #temp2 FOR XML PATH('')),1,1,'');
+SELECT @colsPivot = STUFF((SELECT ',' + QUOTENAME(TxtOrderDate) FROM #temp2 FOR XML PATH('')),1,1,'');
 
+-- COMPILE INTO THE DYNAMIC SQL STATEMENT
 DECLARE @SQL NVARCHAR(MAX) = 
-	'SELECT CustomerName, ' + @cols + ' ' +
+	'SELECT CustomerName, ' + @colsSelect + ' ' +
 	'FROM 
 		#temp
 	PIVOT(
 		SUM(TotalDue)
 		FOR OrderDate 
-		IN (' + @cols2 + ')
+		IN (' + @colsPivot + ')
 	) T
 	ORDER BY 
 		CustomerName';
@@ -54,10 +58,4 @@ EXEC sp_executeSQL @sql
 -- CLEANUP
 DROP TABLE #temp
 DROP TABLE #temp2
-
-
-
-
-
-
 
