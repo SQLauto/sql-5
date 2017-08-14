@@ -57,7 +57,25 @@ delete from dbo.tmp
 
 drop table dbo.tmp
 
+alter sequence dbo.insertCounter
+	cache 200;
 
 
 
+select cache_size, * from test1.sys.sequences
+
+
+drop sequence MySeq
+drop sequence InsertCounter
+
+drop table dbo.tmp
+
+
+declare @firstVal sql_variant,
+		@lastVal sql_variant
+
+exec sp_sequence_get_range N'dbo.insertCounter', 2, @range_first_value = @firstVal OUTPUT, @range_last_value = @lastVal OUTPUT
+
+
+select @firstVal, @lastVal
 
