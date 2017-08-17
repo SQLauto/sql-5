@@ -1,0 +1,41 @@
+DML triggers - when data changes 
+DDL triggers - when database objects change - tables, views, stored procs, etc|What are the two main types of triggers?¬
+AFTER and INSTEAD OF|What are the two types of DML trigger?¬
+Fires after associated event finishes
+Can only be defined on permanent tables.|Describe what an AFTER trigger is.¬
+Fires instead of the event.
+Can be defined on permanent tables and views|Describe what an INSTEAD OF trigger is.¬
+Auditing
+Enforcing complex integrity rules|What are typical uses of DML triggers?¬
+INSERT, UPDATE, DELETE|What statements cause triggers to run?¬
+You can issue a ROLLBACK TRANSACTION but this may have unwanted side effects.
+You should issue THROW or RAISERROR and then handle that within the error handling routine.|How can you use a trigger rollback the transaction?¬
+use RETURN|How do you normally exit a trigger?¬
+It must be the same schema that the object it is handling belongs to.|What restrictions are there on the schema a trigger belongs to?¬
+CREATE TRIGGER TriggerName
+    ON [dbo].[TableName]
+    FOR DELETE, INSERT, UPDATE
+    AS...
+
+You can use AFTER instead of FOR|How do you defined an after trigger?¬
+CREATE TRIGGER TriggerName
+    ON [dbo].[TableName]
+    INTSTEAD OF INSERT
+    AS...
+|How do you defined an instead of trigger?¬
+Return immediatly if rowcount is 0|What performance improvement is recommended on the first line of a trigger?¬
+Ability to return rowsets|What feature regarding returning from triggers will be dropped from future versions?¬
+EXEC sp_configure 'nested triggers'|How do you check the setting for whether nested triggers are allowed?¬
+EXEC sp_configure 'nested triggers', 0;
+RECONFIGURE;|How do you switch nested triggers off?¬
+It provides a way to update more than one underlying table of that view|Why are INSTEAD OF triggers often used with views?¬
+UPDATE() and COLUMNS_UPDATED()|What are the two trigger functions that you can use within triggers?¬
+Returns whether a column is referenced by an insert or update statement|What does the UPDATE() trigger function do?¬
+Returns a bitmap indicating the columns in a table that were referenced in an insert or update statement|What does the COLUMNS_UPDATED() trigger function do?¬
+
+
+
+
+
+
+

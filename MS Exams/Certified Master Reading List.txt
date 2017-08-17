@@ -1,0 +1,140 @@
+Infrastructure Planning and Design
+https://msdn.microsoft.com/en-us/library/cc196387.aspx
+
+On disk structures / New on disk structures in SQL Server 2008
+http://www.sqlskills.com/BLOGS/PAUL/category/On-Disk-Structures.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/FILESTREAM.aspx
+http://www.sqlskills.com/BLOGS/PAUL/post/SQL-Server-2008-Spatial-indexes.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/Sparse-Columns.aspx
+http://blogs.msdn.com/sqlserverstorageengine/archive/tags/Data+Compression/default.aspx
+http://sqlcat.com/whitepapers/archive/2009/05/29/data-compression-strategy-capacity-planning-and-best-practices.aspx
+
+Data file maintenance, database snapshots, tempdb
+http://www.sqlskills.com/BLOGS/PAUL/category/Shrink.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/Database-Snapshots.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/Database-Maintenance.aspx
+http://technet.microsoft.com/en-us/library/cc966545.aspx
+http://technet.microsoft.com/en-us/library/cc966414.aspx
+
+Logging, Recovery, log file maintenance
+http://www.sqlskills.com/BLOGS/PAUL/category/Transaction-Log.aspx
+
+Index internals and fragmentation
+http://www.sqlskills.com/BLOGS/PAUL/category/Fragmentation.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/Indexes-From-Every-Angle.aspx
+http://technet.microsoft.com/en-us/library/cc966402.aspx
+
+Performance Tuning and Optimization (PTO)
+http://www.sqlskills.com/BLOGS/KIMBERLY/category/Indexes.aspx
+http://technet.microsoft.com/en-us/library/cc966419.aspx
+http://technet.microsoft.com/en-us/library/cc966425.aspx
+http://www.microsoft.com/technet/prodtechnol/sql/2005/sql2005dta.mspx
+http://msdn.microsoft.com/en-us/library/ms345124.aspx
+http://msdn.microsoft.com/en-us/library/ms345146.aspx
+http://sqlcat.com/whitepapers/archive/2009/04/14/troubleshooting-performance-problems-in-sql-server-2008.aspx
+
+Backup and Restore
+http://www.sqlskills.com/BLOGS/PAUL/category/BackupRestore.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/CHECKDB-From-Every-Angle.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/Corruption.aspx
+http://www.sqlskills.com/BLOGS/PAUL/category/IO-Subsystems.aspx
+http://technet.microsoft.com/en-us/library/ms187048.aspx
+
+Benchmarking and Baselining - Prerequisites
+http://msdn.microsoft.com/en-us/library/ms181091.aspx
+http://technet.microsoft.com/en-us/library/cc966412.aspx
+
+Waits and Queues - Prerequisites
+http://technet.microsoft.com/en-us/library/cc966413.aspx
+http://download.microsoft.com/download/1/3/4/134644fd-05ad-4ee8-8b5a-0aed1c18a31e/TShootPerfProbs.doc
+
+SQL IO
+https://support.microsoft.com/en-gb/help/100108/overview-of-fat--hpfs--and-ntfs-file-systems
+http://support.microsoft.com/kb/230785/en-us
+http://support.microsoft.com/kb/234656/en-us
+http://msdn.microsoft.com/en-us/library/ms179316.aspx
+http://research.microsoft.com/~gray/papers/flashdiskpublic.doc
+http://msdn.microsoft.com/en-us/library/ms190764.aspx
+
+
+XML
+http://msdn.microsoft.com/en-us/library/ms345117.aspx
+http://msdn.microsoft.com/en-us/library/ms345110(SQL.90).aspx
+http://sqlcat.com/whitepapers/archive/2007/12/16/xml-best-practices-for-microsoft-sql-server-2005.aspx
+
+SQL Client
+http://csharp-station.com/Tutorial/CSharp/SmartConsoleSetup.aspx
+http://csharp-station.com/Tutorial/AdoDotNet
+
+SQL CLR
+http://msdn.microsoft.com/en-us/library/ms345136(SQL.90).aspx
+http://technet.microsoft.com/en-us/library/cc917671.aspx
+
+Spatial
+http://msdn.microsoft.com/en-us/library/cc721270.aspx
+http://msdn.microsoft.com/en-us/library/cc749633.aspx
+
+Resource Governor / Policy Based Management
+http://msdn.microsoft.com/en-us/library/bb895232.aspx
+http://msdn.microsoft.com/en-us/library/bb933866.aspx
+http://msdn.microsoft.com/en-us/library/bb934084.aspx
+
+Replication
+http://msdn.microsoft.com/en-us/library/ms151198.aspx
+http://msdn.microsoft.com/en-us/library/ms152567.aspx
+http://msdn.microsoft.com/en-us/library/ms152531.aspx
+http://msdn.microsoft.com/en-us/library/ms152501.aspx
+
+Service Broker
+http://msdn.microsoft.com/en-us/library/bb522893.aspx
+http://msdn.microsoft.com/en-us/library/ms166104.aspx
+http://msdn.microsoft.com/en-us/library/ms166049.aspx
+http://msdn.microsoft.com/en-us/library/ms166071.aspx
+http://sqlcat.com/whitepapers/archive/2009/03/24/service-broker-performance-and-scalability-techniques.aspx
+
+Security
+http://msdn.microsoft.com/en-us/library/bb283235.aspx
+http://msdn.microsoft.com/en-us/library/ms143504.aspx
+http://msdn.microsoft.com/en-us/library/ms144228.aspx
+http://sqlcat.com/whitepapers/archive/2008/11/15/reaching-compliance-sql-server-2008-compliance-guide.aspx
+http://sqlcat.com/whitepapers/archive/2007/12/16/sql-server-2005-security-best-practices-operational-and-administrative-tasks.aspx
+
+High Availability
+http://msdn.microsoft.com/en-us/library/ms190202.aspx
+http://msdn.microsoft.com/en-us/library/bb510414.aspx
+http://msdn.microsoft.com/en-us/library/ms189852.aspx
+http://msdn.microsoft.com/en-us/library/ms187103.aspx
+http://sqlcat.com/whitepapers/archive/2009/09/23/using-replication-for-high-availability-and-disaster-recovery.aspx
+http://sqlcat.com/whitepapers/archive/2009/08/04/high-availability-and-disaster-recovery-at-serviceu-a-sql-server-2008-technical-case-study.aspx
+http://sqlcat.com/whitepapers/archive/2009/07/08/sql-server-2008-failover-clustering.aspx
+http://sqlcat.com/whitepapers/archive/2008/09/02/sql-server-replication-providing-high-availability-using-database-mirroring.aspx
+http://sqlcat.com/whitepapers/archive/2007/11/19/database-mirroring-best-practices-and-performance-considerations.aspx
+
+TempDB
+http://msdn.microsoft.com/en-us/library/ms175527.aspx
+http://msdn.microsoft.com/en-us/library/ms345368.aspx
+
+SSIS
+http://msdn.microsoft.com/en-us/library/ms141026.aspx
+http://msdn.microsoft.com/en-us/library/ms137833.aspx
+http://msdn.microsoft.com/en-us/library/ms141134.aspx
+http://msdn.microsoft.com/en-us/library/ms141132.aspx
+
+CDC, Change Tracking
+http://sqlcat.com/whitepapers/archive/2008/11/24/tuning-the-performance-of-change-data-capture-in-sql-server-2008.aspx
+http://msdn.microsoft.com/en-us/library/cc280462.aspx
+
+Virtualization
+http://sqlcat.com/whitepapers/archive/2008/10/03/running-sql-server-2008-in-a-hyper-v-environment-best-practices-and-performance-recommendations.aspx
+
+
+
+
+
+
+
+
+
+
+
+
