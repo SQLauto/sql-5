@@ -79,3 +79,19 @@ exec sp_sequence_get_range N'dbo.insertCounter', 2, @range_first_value = @firstV
 
 select @firstVal, @lastVal
 
+select @@TRANCOUNT, xact_state()
+
+select * from sys.dm_tran_active_transactions
+
+
+begin tran
+
+select @@TRANCOUNT
+begin tran paul with mark;
+
+select @@TRANCOUNT
+
+rollback
+
+select @@TRANCOUNT
+
