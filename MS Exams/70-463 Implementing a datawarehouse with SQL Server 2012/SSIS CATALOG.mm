@@ -1,0 +1,60 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node CREATED="1505799529046" ID="ID_1262877856" MODIFIED="1505799553322" TEXT="SSIS CATALOG">
+<node CREATED="1505799554997" HGAP="55" ID="ID_678270696" MODIFIED="1505800538131" POSITION="right" TEXT="DATA TAP" VSHIFT="-54">
+<node CREATED="1505799634765" ID="ID_1323289020" MODIFIED="1505799636625" TEXT="catalog.add_data_tap"/>
+<node CREATED="1505799652131" ID="ID_1858185865" MODIFIED="1505799653136" TEXT="catalog.add_data_tap_by_guid"/>
+<node CREATED="1505800200912" MODIFIED="1505800200912" TEXT="catalog.remove_data_tap"/>
+</node>
+<node CREATED="1505799572869" ID="ID_1951359058" MODIFIED="1505800136304" POSITION="right" TEXT="ENVIRONMENT">
+<node CREATED="1505799750196" ID="ID_1013744917" MODIFIED="1505800096560" TEXT="catalog.create_environment "/>
+<node CREATED="1505799804867" ID="ID_1269826446" MODIFIED="1505800099590" TEXT="catalog.create_environment_reference "/>
+<node CREATED="1505799838140" ID="ID_801222044" MODIFIED="1505800105209" TEXT="catalog.create_environment_variable "/>
+<node CREATED="1505800134931" MODIFIED="1505800134931" TEXT="catalog.delete_environment"/>
+<node CREATED="1505800134931" MODIFIED="1505800134931" TEXT="catalog.delete_environment_reference"/>
+<node CREATED="1505800134931" MODIFIED="1505800134931" TEXT="catalog.delete_environment_variable"/>
+<node CREATED="1505800151315" MODIFIED="1505800151315" TEXT="catalog.set_environment_property"/>
+<node CREATED="1505800151316" MODIFIED="1505800151316" TEXT="catalog.set_environment_reference_type"/>
+<node CREATED="1505800151317" MODIFIED="1505800151317" TEXT="catalog.set_environment_variable_property"/>
+<node CREATED="1505800151318" MODIFIED="1505800151318" TEXT="catalog.set_environment_variable_protection"/>
+<node CREATED="1505800151341" MODIFIED="1505800151341" TEXT="catalog.set_environment_variable_value"/>
+<node CREATED="1505800160092" MODIFIED="1505800160092" TEXT="catalog.rename_environment"/>
+<node CREATED="1505800188740" MODIFIED="1505800188740" TEXT="catalog.move_environment"/>
+</node>
+<node CREATED="1505799577661" HGAP="76" ID="ID_554903910" MODIFIED="1505800544148" POSITION="right" TEXT="INFO" VSHIFT="37">
+<node CREATED="1505799734899" ID="ID_1836870837" MODIFIED="1505800107981" TEXT="catalog.configure_catalog "/>
+<node CREATED="1505799771252" ID="ID_136572750" MODIFIED="1505799772456" TEXT="catalog.check_schema_version "/>
+<node CREATED="1505800426827" MODIFIED="1505800426827" TEXT="catalog.create_folder"/>
+<node CREATED="1505800426828" MODIFIED="1505800426828" TEXT="catalog.delete_folder"/>
+<node CREATED="1505800426830" MODIFIED="1505800426830" TEXT="catalog.rename_folder"/>
+<node CREATED="1505800426831" MODIFIED="1505800426831" TEXT="catalog.set_folder_description"/>
+</node>
+<node CREATED="1505799565708" HGAP="22" ID="ID_1775510149" MODIFIED="1505800525997" POSITION="left" TEXT="PROJECT/PACKAGE" VSHIFT="-69">
+<node CREATED="1505799697524" ID="ID_1286768168" MODIFIED="1505799718368" TEXT="catalog.clear_object_parameter_value"/>
+<node CREATED="1505800220617" MODIFIED="1505800220617" TEXT="catalog.validate_package"/>
+<node CREATED="1505800220618" MODIFIED="1505800220618" TEXT="catalog.validate_project"/>
+<node CREATED="1505800234833" MODIFIED="1505800234833" TEXT="catalog.get_project"/>
+<node CREATED="1505800240986" MODIFIED="1505800240986" TEXT="catalog.deploy_project"/>
+<node CREATED="1505800248609" MODIFIED="1505800248609" TEXT="catalog.delete_project"/>
+<node CREATED="1505800257345" MODIFIED="1505800257345" TEXT="catalog.move_project"/>
+<node CREATED="1505800268602" MODIFIED="1505800268602" TEXT="catalog.restore_project"/>
+<node CREATED="1505800437604" MODIFIED="1505800437604" TEXT="catalog.get_parameter_values"/>
+<node CREATED="1505800437606" MODIFIED="1505800437606" TEXT="catalog.create_execution"/>
+<node CREATED="1505800437608" MODIFIED="1505800437608" TEXT="catalog.create_execution_dump"/>
+<node CREATED="1505800437610" MODIFIED="1505800437610" TEXT="catalog.set_execution_parameter_value"/>
+<node CREATED="1505800437611" MODIFIED="1505800437611" TEXT="catalog.set_execution_property_override_value"/>
+<node CREATED="1505800437611" MODIFIED="1505800437611" TEXT="catalog.set_object_parameter_value"/>
+<node CREATED="1505800437613" MODIFIED="1505800437613" TEXT="catalog.start_execution"/>
+<node CREATED="1505800437615" MODIFIED="1505800437615" TEXT="catalog.startup"/>
+<node CREATED="1505800437616" MODIFIED="1505800437616" TEXT="catalog.stop_operation"/>
+<node CREATED="1505800437617" MODIFIED="1505800437617" TEXT="catalog.add_execution_worker"/>
+<node CREATED="1505800437618" MODIFIED="1505800437618" TEXT="catalog.enable_worker_agent"/>
+<node CREATED="1505800437619" MODIFIED="1505800437619" TEXT="catalog.disable_worker_agent"/>
+</node>
+<node CREATED="1505799581940" HGAP="72" ID="ID_409840464" MODIFIED="1505800531040" POSITION="left" TEXT="PERMISSIONS" VSHIFT="7">
+<node CREATED="1505800117707" MODIFIED="1505800117707" TEXT="catalog.grant_permission"/>
+<node CREATED="1505800173707" MODIFIED="1505800173707" TEXT="catalog.revoke_permission"/>
+<node CREATED="1505800321625" MODIFIED="1505800321625" TEXT="catalog.deny_permission"/>
+</node>
+</node>
+</map>
