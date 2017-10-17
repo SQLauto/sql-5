@@ -24,6 +24,16 @@ namespace FileSearch
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                XPathExpression.Compile(txtXpath.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("XPath Expression does not compile");
+                return;
+            }
+
             folderBrowserDialog1.SelectedPath = @"c:\temp\xml";
 
             if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -45,6 +55,11 @@ namespace FileSearch
 
                 }
             }
+
+        }
+
+        private void txtXpath_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
