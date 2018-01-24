@@ -26,11 +26,12 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DEV100</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAg6IgRpAJ0USY7rDeVMzy+AAAAAACAAAAAAAQZgAAAAEAACAAAAAvqwR6TlQMG5j4JphrrHPT2liADKPN94dF0HBEVcVyLgAAAAAOgAAAAAIAACAAAADn/LKkellLwFJGg3E0qbg0MZ93k2rX/brWYhtpNT1pPJAAAABM0sl6/suXZm1oVG08tOx6CUMBNfPKbqEVdDV4Fh5i6pldngKUwVDrazoPq6uIv6jDkJCpgP33HwZE++Okf4Lo3sIqPATsIPTikD7Js1wBFg5jTKWb1DwypThikCtWJ75FET8UCD6jP42fV3MeTcUdgwq8Lp9gc1eGIMQbzXGkL6UMx/y1tsCbrEIi6yGq1SFAAAAAz+Qqq5fFsn9YlXLtHNTvSNh8L1NUyloqZF6eQvIh4t5pYz+383F96YS3g+9tMvWIirgvNvwl2TC3xt1KjEdJ6A==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArbszWlOqyU2oZFJ4OqDTMAAAAAACAAAAAAAQZgAAAAEAACAAAAACZs8jKmclVlfxELH84Y5712Po+a9cCg7IfKqLhdc8AgAAAAAOgAAAAAIAACAAAABPwZnNwzuv6aco3xer+5HPzN+ypIi4/SUyoCjSyBDzRpAAAABw/G06twwZ+6eAqtLylbbHBGrhELvTQKqOuhFcwZh2P+af5HL9QQzPABqjRCHV5tmmPCoJqSarmxGS7UZHXvKADv6Km5DGa0d3irmmwo6o4vG2BgI7OcE+9dMIsGXylkS9WednfDIl7EwvGIZpLdzTTjVMcpTQXLcZI82ymuDOiLqs72GYknE7wBZt5vKCIDZAAAAAayYuKxFS38wp13KPsOaFUKO2Pf4e/OiKUU//79m+gLvjB/SrkZnDpkD2MHhKoDAWElOr33EwjmKWbh7MbmgMXw==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Package.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Package1.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
@@ -42,10 +43,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">3</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">34</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{A548A350-844A-4440-B811-F21F78F0B077}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D818F6F6-602D-4B74-B7B1-60B0047701F0}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -66,7 +67,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DEV100.AdventureWorksR2.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.DartsGames.csv.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -77,11 +78,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Data Source=DEV100;Initial Catalog=AdventureWorksR2;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\DEVELOPMENT\GITHUB\Darts\SourceData\DartsGames.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DEV100.AdventureWorksR2.InitialCatalog">
+                <SSIS:Parameter SSIS:Name="CM.DEV100.xiyudemo.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -92,11 +93,26 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">AdventureWorksR2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Data Source=DEV100;Initial Catalog=xiyudemo;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DEV100.AdventureWorksR2.Password">
+                <SSIS:Parameter SSIS:Name="CM.DEV100.xiyudemo.InitialCatalog">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">xiyudemo</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.DEV100.xiyudemo.Password">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -110,7 +126,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DEV100.AdventureWorksR2.RetainSameConnection">
+                <SSIS:Parameter SSIS:Name="CM.DEV100.xiyudemo.RetainSameConnection">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -125,7 +141,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DEV100.AdventureWorksR2.ServerName">
+                <SSIS:Parameter SSIS:Name="CM.DEV100.xiyudemo.ServerName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -140,7 +156,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.DEV100.AdventureWorksR2.UserName">
+                <SSIS:Parameter SSIS:Name="CM.DEV100.xiyudemo.UserName">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -154,7 +170,39 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.log1.xml.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\DEVELOPMENT\GITHUB\Darts\SourceData\logging\log1.xml</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Package1.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{0F4625D6-171A-4111-88FE-CEE30AC76816}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">TestLogging</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6F13F5EB-5F61-475D-8433-548A2B4689E0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
