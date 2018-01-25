@@ -59,7 +59,8 @@ STEP 1:
 
 /*=================================================================================================
 STEP 2:
-		Use the CTE to identify the groups that each record falls into.
+		Return the results with the new status value.
+		The [grouping] field is used to limit the max of the status- which is the newStatus
 =================================================================================================*/
 SELECT 
 	 [id]
@@ -70,8 +71,8 @@ SELECT
 
 	 -- MAX: Discards null values
 	,MAX(CASE WHEN [status] = 'I' THEN NULL ELSE [status] END) 
-	 
-	 -- now add [grouping] to the partition clause to limit the max calculation 
+	 -- Add [grouping] to the partition clause to limit the max calculation 
 	 OVER (PARTITION BY [name],[grouping] ORDER BY [name],[dtRecorded]) AS [newStatus]
+
 FROM CTE_GROUPED
 
