@@ -5,7 +5,7 @@ IF OBJECT_ID(N'tempdb..#CreditHistory') IS NOT NULL DROP TABLE #CreditHistory;
 CREATE TABLE #CreditHistory(
 	 id				INT			IDENTITY(1,1)	NOT NULL
 	,[name]			VARCHAR(20)					NOT NULL	
-	,[status]		CHAR(1)						NULL
+	,[status]		CHAR(1)						NOT NULL
 	,[dtRecorded]	DATE						NOT NULL
 )
 
